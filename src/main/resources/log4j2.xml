@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="WARN">
+ 
+ 	<Appenders>
+		<Console name="ConsoleAppender" target="SYSTEM_OUT">
+			<PatternLayout pattern="%date %-5level %logger{36} - %msg%n" />
+		</Console>
+	</Appenders>
+
+ <loggers>
+ 
+  <!-- 모든 로그는 dubug레벨 이상일때만 찍고 -->
+	  <root level="debug" additivity="false" >
+	   <appender-ref ref="ConsoleAppender" />   
+	  </root>
+
+     <logger name="org.springframework" level="warn" additivity="false" >
+      <appender-ref ref="ConsoleAppender" />      
+     </logger>
+
+     <logger name="org.apache.http" level="warn" additivity="false" >
+      <appender-ref ref="ConsoleAppender" />      
+     </logger>
+     
+     <logger name="com.home.api" level="info" additivity="false" >
+      <appender-ref ref="ConsoleAppender" />      
+     </logger>
+
+ </loggers>
+</configuration>
