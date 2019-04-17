@@ -4,7 +4,7 @@
   <groupId>com.homeapi</groupId>
   <artifactId>web</artifactId>
   <packaging>homeAPI</packaging>
-  <version/>
+  <version>/</version>
   <!-- <version>0.0.1-SNAPSHOT</version> -->
   <name>MY NAS PROJECT</name>
   <url>http://maven.apache.org</url>
