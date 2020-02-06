@@ -13,8 +13,19 @@
 		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
 	
-	<context:component-scan base-package="com.home.api" use-default-filters="false">
+    <!-- RequestMappingHandlerMapping, RequestMappingHandlerAdapter 클래스를 빈으로 등록해줌 -->
+    <mvc:annotation-driven />
+    
+    <!-- This tag allows for mapping the DispatcherServlet to "/" 이거 없으면 컨트롤러가 있어도 404에러 뜸 -->
+    <mvc:default-servlet-handler />
+
+    <!-- Process annotations on registered beans like @Autowired... -->
+    <context:annotation-config/>
+    <!-- 컴포넌트 스캔 -->
+    <!-- <context:component-scan base-package="com.home.api.biz.study.controller" /> -->
+   	<context:component-scan base-package="com.home.api" use-default-filters="false">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.RestController" />
 	</context:component-scan>
 
 	<!-- JSTL viewResolver -->

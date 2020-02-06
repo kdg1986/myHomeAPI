@@ -16,11 +16,12 @@ import org.slf4j.LoggerFactory;
 /** 
  */
 @Controller
+@RequestMapping(value = "/file")
 public class FileController {
 	/** Logger */
 	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
-    @RequestMapping(value = {"/file.do"})
+    @RequestMapping(value = "{name}")
     public ModelAndView FileMainController(ModelMap model) throws Exception {  
     	logger.info("asdasd");
         return new ModelAndView("/LGIN/login", model);
