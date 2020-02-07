@@ -25,6 +25,17 @@
      <logger name="com.home.api" level="info" additivity="false" >
       <appender-ref ref="ConsoleAppender" />      
      </logger>
+     
+     <!-- Query Loggers -->
+	<logger name="jdbc.sqlonly" level="info"  additivity="false">		
+		<appender-ref ref="ConsoleAppender" />
+	</logger>
+	
+	<logger name="jdbc.resultsettable" level="info"  additivity="false">		
+		<appender-ref ref="ConsoleAppender" />
+	</logger>
+
+
 
  </loggers>
 </configuration>
