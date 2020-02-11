@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.home.api.biz.study.mapper.serviceDAO;
 import com.home.api.biz.study.service.mainService;
+import com.home.api.biz.study.serviceImpl.mainServiceImpl;
 
 import java.util.HashMap;
 import java.util.List;
@@ -30,7 +31,7 @@ public class mainController {
 	
 	
 	@RequestMapping( value="/api/table/{tableName}", method = RequestMethod.GET)
-	public ResponseEntity<Object> main( @PathVariable String tableName ){
+	public ResponseEntity<Object> main( @PathVariable String tableName ) throws Exception{
 		
 		List<Map<String, Object> > hm =  service.selectList(tableName);		
 		return new ResponseEntity<>(hm, HttpStatus.OK);

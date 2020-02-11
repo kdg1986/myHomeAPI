@@ -3,47 +3,20 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
 
+	<util:properties id="common"	location="classpath:config/properties/common-properties.xml"/>
 
 	<!-- Component Scan : 시스템 공통 -->
 	<context:component-scan base-package="com.home.api">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
-	
-	<bean id="dataSourceSpied" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-	  <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-	  <property name="url" value="jdbc:oracle:thin:@192.168.35.200:44445:xe" />  
-	  <property name="username" value="study2020"  />
-	  <property name="password" value="s1234" />
-	</bean>
-	
-	<!-- MyBatis -->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource" />
-        <property name="configLocation" value="classpath:/config/mybatis/mybatis-config.xml" />        
-        <property name="mapperLocations" value="classpath:/config/mapper/*.xml" />
-    </bean>    
-    
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.home.api.biz.study.mapper" />
-    </bean>
-	
-	
-	<bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
-		<constructor-arg ref="dataSourceSpied" />
-		<property name="logFormatter">
-			<bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">
-				<property name="loggingType" value="MULTI_LINE" />
-				<property name="sqlPrefix" value="SQL : " />
-			</bean>
-		</property>
-	</bean>
-
-
-	
+		
+	<import resource="classpath:config/spring/dataSource-context.xml" />
 
 
 </beans>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<!--
+	배포 서버마다 변경 되진 않지만 공통으로 관리하며 변경 가능한 properties
+	1) java에서 사용하는 법
+		a.value
+			@Value("#{common['key']}")
+			private String CODE_RESPONSE_ERROR;
+
+		b.PropertiesHandler
+			PropertiesHandler.getGeneralProperties(String key)
+			PropertiesHandler.getCommonProperties(String key)
+
+
+	2) .xml 에서 사용하는 법
+		<property name="driverClassName" value="#{common['key']}">
+
+	3) jsp에서 사용하는 법
+		<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+		<spring:eval expression="@common['key']"></spring:eval>
+-->
+<properties>
+	<comment>common : common properties definition</comment>
+
+	
+	<!-- DBCP -->
+	<entry key="oracle.home.url">jdbc:oracle:thin:@localhost:1521:orcl</entry>
+	<entry key="oracle.office.url">jdbc:oracle:thin:@localhost:1521:orcl</entry>
+	<entry key="oracle.study.url">jdbc:oracle:thin:@kdg1986.synology.me:44445:xe</entry>
+	
+	<entry key="oracle.home.id">study2020</entry>
+	<entry key="oracle.office.id">scott</entry>
+	
+	<entry key="oracle.home.password">s1234</entry>
+	<!-- DBCP -->
+	
+	
+
+	
+
+
+
+</properties>
