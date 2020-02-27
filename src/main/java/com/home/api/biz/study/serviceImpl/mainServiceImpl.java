@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.home.api.biz.study.mapper.serviceDAO;
 import com.home.api.biz.study.service.mainService;
 
-@Service
+@Service("main")
 public class mainServiceImpl implements mainService {
 
 	@Resource(name = "mainDAO")

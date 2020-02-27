@@ -14,13 +14,19 @@
 
 	
     <!-- RequestMappingHandlerMapping, RequestMappingHandlerAdapter 클래스를 빈으로 등록해줌 -->
-    <mvc:annotation-driven />
+    <mvc:annotation-driven >
+    	<mvc:argument-resolvers>
+			<bean class="com.home.api.biz.study.controller.aaaa"></bean>			
+		</mvc:argument-resolvers>
+    </mvc:annotation-driven>
     
     <!-- This tag allows for mapping the DispatcherServlet to "/" 이거 없으면 컨트롤러가 있어도 404에러 뜸 -->
-    <mvc:default-servlet-handler />
+    <!-- <mvc:default-servlet-handler /> -->
 
     <!-- Process annotations on registered beans like @Autowired... -->
     <context:annotation-config/>
+    
+    
     <!-- 컴포넌트 스캔 -->
     <!-- <context:component-scan base-package="com.home.api.biz.study.controller" /> -->
    	<context:component-scan base-package="com.home.api" use-default-filters="false">
